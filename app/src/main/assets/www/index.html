@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-color="rainbow" data-mode="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#08080b"><title>Chaos Shredder</title><link rel="stylesheet" href="style.css"><script src="theme.js"></script><script defer src="app.js"></script></head>
+<body><main class="shell">
+<header class="hero"><button class="gear" id="gearButton" type="button" aria-label="Settings">⚙️</button><h1>CHAOS SHREDDER <span aria-hidden="true">🌀</span></h1><p>Normal words in. Chaos out.</p></header>
+<section class="mode-area" aria-label="Transformation mode"><button class="mode-trigger" id="modeTrigger" type="button" aria-expanded="false" aria-controls="modePanel"><span id="modeButtonName">Transformation Mode</span><span class="chevron" aria-hidden="true">▾</span></button><div class="mode-panel" id="modePanel" hidden></div><div class="mode-extra" id="modeExtra"></div></section>
+<section class="input-section"><div class="section-label"><label for="inputText">Input</label><span id="charCounter">0 characters</span></div><textarea id="inputText" spellcheck="false" placeholder="Enter or paste your text here..."></textarea><div class="button-row input-buttons"><button class="button pink" id="clearButton" type="button">Clear</button><button class="button blue" id="copyInputButton" type="button">Copy</button><button class="button lime" id="sampleButton" type="button">Load Sample</button><button class="button yellow" id="uploadButton" type="button">Upload .txt</button><input id="fileInput" type="file" accept=".txt,text/plain" hidden></div></section>
+<section class="stats-card" aria-live="polite"><h2>Text Statistics</h2><div class="stats-grid"><div class="stat"><strong id="statWithSpaces">0</strong><span>Characters<br>(with spaces)</span></div><div class="stat"><strong id="statNoSpaces">0</strong><span>Characters<br>(without spaces)</span></div><div class="stat"><strong id="statWords">0</strong><span>Words</span></div><div class="stat"><strong id="statSentences">0</strong><span>Sentences</span></div><div class="stat"><strong id="statParagraphs">0</strong><span>Paragraphs</span></div></div></section>
+<section class="output-section"><div class="section-label"><label for="outputText">Output Text</label><span class="output-mode" id="outputModeName">🔄 Reverse Text</span></div><textarea id="outputText" readonly placeholder="Transformed text will appear here..."></textarea><div class="button-row output-buttons"><button class="button purple" id="copyOutputButton" type="button">Copy</button><button class="button pink" id="downloadButton" type="button">Download Text</button></div></section>
+<section class="howto"><h2>How to Use</h2><ol><li>Tap “Transformation Mode” and pick a style.</li><li>Type, paste, upload a .txt, or tap “Load Sample” in the Input box.</li><li>Watch your text transform in the Output box as you go.</li><li>Check your counts in Text Statistics.</li><li>Tap “Copy” or “Download Text” to keep your chaos.</li><li>In Jabberwocky or Brain Rot mode, tap the 🎲 button for a brand-new version.</li><li>In Cursed mode, slide the Curse level to choose how haunted it gets.</li></ol><p class="tip">✦ Emojis pass through untouched.</p></section>
+<div class="sheet-back" id="settingsBack" hidden><div class="sheet" role="dialog" aria-label="Settings">
+<h2>⚙️ Settings</h2>
+<h3>Appearance</h3>
+<div class="picks" id="modePicks">
+<button class="pick" data-mode-pick="light" type="button"><span class="preview pv-light"><i></i></span>Light</button>
+<button class="pick" data-mode-pick="dark" type="button"><span class="preview pv-dark"><i></i></span>Dark</button>
+<button class="pick" data-mode-pick="system" type="button"><span class="preview pv-system"><i></i></span>System</button>
+</div>
+<h3>Color</h3>
+<div class="picks two" id="colorPicks">
+<button class="pick" data-color-pick="grey" type="button"><span class="preview pv-grey"><i></i></span>🩶 Grey</button>
+<button class="pick" data-color-pick="rainbow" type="button"><span class="preview pv-rainbow"><i></i></span>🌈 Rainbow Bright</button>
+</div>
+<div class="about">
+<div><strong>Chaos Shredder</strong> <span id="appVersion"></span> · part of the Chaos Collection</div>
+<a href="https://github.com/aunt13psychot1c/Chaos-Shredder" data-outside>🐙 GitHub</a>
+<a href="https://github.com/aunt13psychot1c/Chaos-Shredder/releases/latest" data-outside>⬇️ Check for updates</a>
+<a href="https://buymeacoffee.com/Aunt13psychot1c" data-outside>🍕 Buy Aunt13 a pizza</a>
+<div>Made by Aunt13psychot1c · MIT license</div>
+</div>
+<button class="button blue done" id="settingsDone" type="button">Done</button>
+</div></div>
+<div class="sheet-back welcome" id="welcomeBack" hidden><div class="sheet" role="dialog" aria-label="Pick your style">
+<h2>How do you like your chaos? 🌀</h2>
+<p>You can change this anytime with ⚙️</p>
+<div class="picks two">
+<button class="pick big-pick" data-welcome="grey" type="button"><span class="preview pv-grey"><i></i></span>🩶 Grey<small>dreary &amp; drab, very professional</small></button>
+<button class="pick big-pick" data-welcome="rainbow" type="button"><span class="preview pv-rainbow"><i></i></span>🌈 Rainbow Bright<small>fun &amp; chaotic</small></button>
+</div>
+</div></div>
+<footer>© Queen of Chaos · Built for the wonderfully strange 🥀</footer></main></body></html>
