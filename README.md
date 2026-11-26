@@ -1,5 +1,5 @@
-<center><img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="200"
-  height="300"><br></center>
+<p align="center"><img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="200"
+  height="300"><br></p>
 
 
 # <img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="50" height="50"> Chaos Shredder
