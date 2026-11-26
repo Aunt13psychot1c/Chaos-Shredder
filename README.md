@@ -1,7 +1,8 @@
-<img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg">
+<img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="200"
+  height="300">
 
 
-# 🌀 Chaos Shredder
+# 🌀 Chaos Shredder8
 
 **Normal words in. Chaos out.**
 
