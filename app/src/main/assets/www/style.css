@@ -1,0 +1,162 @@
+/*
+  Chaos Shredder looks. Four themes from one set of variables, switched by two attributes
+  on <html>:  data-color="rainbow|grey"  and  data-mode="dark|light".
+  --a1/--a2/--a3 are the bright accents for borders, fills and glow.
+  --t1/--t2/--t3 are the same accents made readable as text on that background.
+*/
+
+/* 🌈 Rainbow Bright, dark: fluorescent pink, blue and green on black */
+html[data-color="rainbow"][data-mode="dark"]{
+  color-scheme:dark;
+  --bg:#000;--panel:#0b0b0f;--field:#0e0e13;--line:#2a2a33;
+  --text:#ffffff;--muted:#b9b7c4;--dim:#7d7b88;
+  --a1:#ff10f0;--a2:#1fd8ff;--a3:#39ff14;
+  --t1:#ff4df4;--t2:#4fe2ff;--t3:#5cff3d;
+  --glow:1;--title-font:Impact,'Arial Black',sans-serif;
+}
+/* 🌈 Rainbow Bright, light: white with the colors on the edges and buttons */
+html[data-color="rainbow"][data-mode="light"]{
+  color-scheme:light;
+  --bg:#ffffff;--panel:#ffffff;--field:#ffffff;--line:#e3e3ea;
+  --text:#111114;--muted:#55545e;--dim:#8a8994;
+  --a1:#ff10f0;--a2:#1fd8ff;--a3:#39ff14;
+  --t1:#d1009e;--t2:#007fb3;--t3:#1d9900;
+  --glow:.55;--title-font:Impact,'Arial Black',sans-serif;
+}
+/* 🩶 Grey, dark: muted charcoal, all neutral */
+html[data-color="grey"][data-mode="dark"]{
+  color-scheme:dark;
+  --bg:#141416;--panel:#1e1e21;--field:#252529;--line:#34343a;
+  --text:#e6e6e9;--muted:#9a9aa3;--dim:#6b6b74;
+  --a1:#5a5a63;--a2:#5a5a63;--a3:#5a5a63;
+  --t1:#d4d4d8;--t2:#d4d4d8;--t3:#d4d4d8;
+  --glow:0;--title-font:system-ui,'Segoe UI',Roboto,sans-serif;
+}
+/* 🩶 Grey, light: soft white and light grays */
+html[data-color="grey"][data-mode="light"]{
+  color-scheme:light;
+  --bg:#f7f7f8;--panel:#ffffff;--field:#ffffff;--line:#e4e4e7;
+  --text:#1f2933;--muted:#6b7280;--dim:#9ca3af;
+  --a1:#c9c9cf;--a2:#c9c9cf;--a3:#c9c9cf;
+  --t1:#374151;--t2:#374151;--t3:#374151;
+  --glow:0;--title-font:system-ui,'Segoe UI',Roboto,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;line-height:1.5;transition:background .2s,color .2s}
+html[data-color="grey"] body{font-family:system-ui,'Segoe UI',Roboto,sans-serif}
+.shell{width:min(100% - 32px,760px);margin:0 auto;padding:30px 0 22px}
+
+/* Title row with the ⚙️ button */
+.hero{position:relative;text-align:center;margin:0 0 26px;padding:0 44px}
+.hero h1{font-family:var(--title-font);font-size:clamp(1.5rem,7vw,2.6rem);line-height:1.2;margin:0;color:var(--text);letter-spacing:.02em;
+  text-shadow:0 0 calc(8px*var(--glow)) var(--a1),0 0 calc(20px*var(--glow)) var(--a1)}
+html[data-color="grey"] .hero h1{text-shadow:none;letter-spacing:0;font-weight:800}
+.hero p{color:var(--t3);margin:8px 0 0;font-size:.95rem}
+.gear{position:absolute;top:0;right:0;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:1.2rem;cursor:pointer;display:grid;place-items:center}
+
+/* Mode picker */
+.mode-area{position:relative;margin-bottom:25px}
+.mode-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;background:var(--panel);color:var(--text);border:2px solid var(--a1);border-radius:12px;
+  box-shadow:0 0 calc(12px*var(--glow)) var(--a1);font:inherit;font-weight:700;font-size:1rem;cursor:pointer;text-align:left}
+.chevron{color:var(--t1);font-size:1.4rem}
+.mode-panel{position:absolute;z-index:5;top:calc(100% + 8px);left:0;right:0;padding:8px;background:var(--panel);border:1px solid var(--line);border-radius:13px;box-shadow:0 12px 40px #0005;max-height:min(65vh,520px);overflow:auto}
+.mode-option{display:block;width:100%;text-align:left;padding:10px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--text);font:inherit;cursor:pointer}
+.mode-option:hover,.mode-option:focus-visible{border-color:var(--line);outline:none}
+.mode-option.on{border-color:var(--a2)}
+.mode-option strong{display:block;font-size:.96rem}
+.mode-option small{display:block;margin:3px 0 0 1.65rem;color:var(--muted);font-size:.76rem;line-height:1.4}
+.mode-option.jabber{border-color:var(--a3);box-shadow:inset 0 0 calc(12px*var(--glow)) var(--a3)}
+.mode-option.jabber strong{color:var(--t3)}
+.mode-extra{margin-top:10px}
+
+/* Buttons: pink, blue, green in Rainbow Bright; plain gray in Grey */
+.button-row{display:flex;flex-wrap:wrap;gap:9px}
+.button{border:1.5px solid currentColor;border-radius:8px;padding:10px 13px;background:var(--panel);color:var(--text);font:inherit;font-weight:700;font-size:.82rem;cursor:pointer;transition:transform .12s,filter .12s}
+.button:active{transform:translateY(1px)}
+.pink,.purple{color:var(--t1);box-shadow:0 0 calc(9px*var(--glow)) var(--a1)}
+.blue{color:var(--t2);box-shadow:0 0 calc(9px*var(--glow)) var(--a2)}
+.lime,.yellow{color:var(--t3);box-shadow:0 0 calc(9px*var(--glow)) var(--a3)}
+html[data-color="grey"] .button{border-color:var(--line)}
+
+/* Input / output */
+.input-section,.output-section{margin-bottom:23px}
+.section-label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 2px 8px;font-weight:800;font-size:.95rem}
+.section-label label{color:var(--t2)}
+.section-label #charCounter{color:var(--muted);font-size:.76rem;font-weight:500}
+.output-mode{color:var(--t1);font-size:.77rem;text-align:right}
+.section-label:has(.output-mode) label{color:var(--t1)}
+textarea{display:block;width:100%;min-height:176px;resize:vertical;border:1.5px solid var(--line);border-radius:11px;background:var(--field);color:var(--text);padding:14px;font:.92rem/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;outline:none}
+textarea:focus{border-color:var(--a2);box-shadow:0 0 calc(12px*var(--glow)) var(--a2)}
+textarea::placeholder{color:var(--dim);opacity:1}
+#outputText{border-color:var(--a1);box-shadow:0 0 calc(10px*var(--glow)) var(--a1)}
+html[data-color="grey"] #outputText{border-color:var(--line)}
+.input-buttons,.output-buttons{margin-top:10px}
+
+/* Stats */
+.stats-card{padding:17px 15px 15px;margin:0 0 23px;border:1.5px solid var(--a3);border-radius:12px;background:var(--panel);box-shadow:0 0 calc(10px*var(--glow)) var(--a3)}
+html[data-color="grey"] .stats-card{border-color:var(--line)}
+.stats-card h2,.howto h2{margin:0 0 15px;font-size:1rem;color:var(--t3)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 8px;text-align:center}
+.stat{min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px}
+.stat strong{font-size:1.55rem;line-height:1.15;color:var(--t3)}
+.stat:nth-child(3n+2) strong{color:var(--t2)}
+.stat:nth-child(3n) strong{color:var(--t1)}
+.stat span{font-size:.68rem;line-height:1.4;color:var(--muted)}
+
+/* How to use, footer */
+.howto{padding:17px 17px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.howto h2{color:var(--t2);margin-bottom:10px}
+.howto ol{margin:0;padding-left:1.45rem;font-size:.8rem}
+.howto li{padding:3px 0 3px 3px}
+.howto li::marker{color:var(--t1);font-weight:bold}
+.tip{margin:12px 0 0;color:var(--t3);font-size:.76rem}
+footer{text-align:center;padding:22px 4px 0;color:var(--dim);font-size:.7rem}
+
+/* Cursed slider */
+.curse-control{display:flex;align-items:center;gap:11px;padding:11px 13px;background:var(--panel);border:1.5px solid var(--a1);border-radius:10px;color:var(--t1);font-size:.82rem}
+.curse-control input{flex:1;accent-color:var(--a1);min-width:90px}
+.curse-control output{min-width:1.2rem;text-align:center;color:var(--text);font-weight:bold}
+
+/* ⚙️ Settings sheet and the first-launch question */
+.sheet-back{position:fixed;inset:0;z-index:20;background:#0009;display:flex;align-items:flex-end;justify-content:center}
+.sheet-back[hidden]{display:none}
+.sheet{width:min(100%,560px);max-height:90vh;overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;padding:20px 18px 26px}
+.sheet h2{margin:0 0 16px;font-size:1.15rem}
+.sheet h3{margin:18px 0 8px;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.picks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.picks.two{grid-template-columns:repeat(2,1fr)}
+.pick{border:2px solid var(--line);border-radius:12px;background:transparent;color:var(--text);font:inherit;font-weight:700;font-size:.82rem;padding:8px 8px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px}
+.pick.on{border-color:var(--a2);box-shadow:0 0 calc(10px*var(--glow)) var(--a2)}
+html[data-color="grey"] .pick.on{border-color:var(--text)}
+.preview{width:100%;height:46px;border-radius:8px;border:1px solid #8885;position:relative;overflow:hidden}
+.preview::before,.preview::after{content:'';position:absolute;left:10%;height:4px;border-radius:2px}
+.preview::before{top:12px;width:55%}
+.preview::after{top:22px;width:38%}
+.preview i{position:absolute;right:9px;bottom:8px;width:12px;height:12px;border-radius:50%}
+.pv-light{background:#fff}.pv-light::before,.pv-light::after{background:#bbb}
+.pv-dark{background:#111}.pv-dark::before,.pv-dark::after{background:#555}
+.pv-system{background:linear-gradient(135deg,#fff 50%,#111 50%)}.pv-system::before,.pv-system::after{background:#888}
+.pv-grey{background:#2a2a2f}.pv-grey::before,.pv-grey::after{background:#777}.pv-grey i{background:#bbb}
+.pv-rainbow{background:#000}.pv-rainbow::before{background:#ff10f0}.pv-rainbow::after{background:#1fd8ff}.pv-rainbow i{background:#39ff14}
+.pv-light i,.pv-dark i,.pv-system i{background:var(--a1)}
+.about{margin-top:20px;padding-top:14px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:grid;gap:8px}
+.about a{color:var(--t2);text-decoration:none;font-weight:700}
+.done{margin-top:20px;width:100%}
+
+.welcome .sheet{border-radius:18px;margin:auto 0;text-align:center;border-bottom:1px solid var(--line)}
+.welcome{align-items:center;padding:16px}
+.welcome p{color:var(--muted);font-size:.85rem;margin:0 0 16px}
+.big-pick{padding:14px 10px;font-size:.95rem}
+.big-pick small{font-weight:400;color:var(--muted);font-size:.72rem}
+
+@media(min-width:560px){
+  .stats-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+  .stat strong{font-size:1.7rem}
+  .input-buttons .button,.output-buttons .button{min-width:105px}
+}
+@media(max-width:390px){
+  .shell{width:calc(100% - 24px)}
+  .button{padding:9px 10px;font-size:.76rem}
+}
