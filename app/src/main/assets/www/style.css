@@ -160,3 +160,6 @@ html[data-color="grey"] .pick.on{border-color:var(--text)}
   .shell{width:calc(100% - 24px)}
   .button{padding:9px 10px;font-size:.76rem}
 }
+
+/* Cursed: a font that stacks the glitch marks instead of drawing boxes */
+#outputText.cursed-out{font-family:system-ui,Roboto,"Noto Sans",sans-serif;line-height:2.1}
