@@ -1,3 +1,6 @@
+<img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg">
+
+
 # 🌀 Chaos Shredder
 
 **Normal words in. Chaos out.**
