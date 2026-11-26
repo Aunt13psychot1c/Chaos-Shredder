@@ -2,7 +2,7 @@
   height="300"><br>
 
 
-# 🌀 <img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="25" height="25"> Chaos Shredder
+# <img src="https://github.com/Aunt13psychot1c/Chaos-Shredder/blob/main/images/jabber.jpg" width="50" height="50"> Chaos Shredder
 
 **Normal words in. Chaos out.**
 
